@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  background: none;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 300px;
+}
+
+input[type="color"]::webkit-color-swatch {
+  border: none;
+}

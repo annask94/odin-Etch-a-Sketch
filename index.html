@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Etch-a-Sketch project</title>
+  </head>
+  <body>
+    <header>Etch-a-Sketch</header>
+    <main>
+      <section class="settings">
+        <input class="settings_btn" type="color" value="#333333" data-name="settingsColorPicker">
+        <button class="settings_mode_color" data-name="settingsModeColor">Color</button>
+        <button class="settings_btn" data-name="settingsModeRainbow">Rainbow</button>
+        <button class="settings_btn" data-name="settingsModeGreyScale">Gray Scale</button>
+        <button class="settings_btn" data-name="settingsModeEraser">Eraser</button>
+        <button class="settings_btn" data-name="settingsClearTheCanvas">Clear the canvas</button>
+        <form action="" class="size_Picker">
+          <label for="settings_size_input">Chose canvas size. How many squares </label>
+          <input type="number" id="settings_size_input" data-name="settingsSizeInput" min="1" max="64">
+          <button class="settings_btn" data-name="settingsSizeBtn" type="submit">Create</button>
+        </form>
+      </section>
+      <section class="canvas">
+        <h2 class="canvas_current_size" data-name="canvasCurrentSizeUI">16x16</h2>
+        <div class="canvas_container"></div>
+      </section>
+    </main>
+    <footer>Copyright &#169 Anna Sobieraj-Kmiecik <a href="https://github.com/annask94" class="git_link">annask94</a></footer>
+  </body>
+</html>
