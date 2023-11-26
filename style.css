@@ -115,7 +115,7 @@ h1 {
   transform: scale(1.1);
 }
 
-.settings_btn:active {
+.active {
   background-color: var(--dark-color);
   color: var(--grey-settings-panel);
 }

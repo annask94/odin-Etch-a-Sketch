@@ -20,15 +20,15 @@
         </form>
         <input id="color_picker" type="color" value="#333333" data-name="settingsColorPicker">
         <label for="color_picker">Pick a color</label>
-        <button class="settings_btn" data-name="settingsModeColor">Color</button>
-        <button class="settings_btn" data-name="settingsModeRainbow">Rainbow</button>
-        <button class="settings_btn" data-name="settingsModeGreyScale">Gray Scale</button>
-        <button class="settings_btn" data-name="settingsModeEraser">Eraser</button>
+        <button class="settings_btn mode_picker" data-name="color">Color</button>
+        <button class="settings_btn mode_picker" data-name="rainbow">Rainbow</button>
+        <button class="settings_btn mode_picker" data-name="greyScale">Gray Scale</button>
+        <button class="settings_btn mode_picker" data-name="eraser">Eraser</button>
         <button class="settings_btn" data-name="settingsClearTheCanvas">Clear the canvas</button>
         <button class="settings_btn" data-name="settingsShowGrid">Show grid</button>
       </section>
       <section class="canvas">
-        <h2 class="canvas_current_size" data-name="canvasCurrentSizeUI">16x16</h2>
+        <h2 class="canvas_current_size"><span data-name="canvasCurrentSizeUI"></span>x<span data-name="canvasCurrentSizeUI"></span></h2>
         <div class="canvas_container" data-name="canvasContainer"></div>
       </section>
     </main>
