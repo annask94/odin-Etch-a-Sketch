@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Etch-a-Sketch project</title>
   </head>
   <body>
@@ -15,24 +18,60 @@
       <section class="settings">
         <form action="" class="size_picker">
           <label for="settings_size_input">Chose canvas size</label>
-          <input type="number" id="settings_size_input" data-name="settingsSizeInput" min="2" max="64">
-          <button class="settings_btn" data-name="settingsSizeBtn" type="submit">Create</button>
+          <input
+            type="number"
+            id="settings_size_input"
+            data-name="settingsSizeInput"
+            min="2"
+            max="64"
+          />
+          <button
+            class="settings_btn"
+            data-name="settingsSizeBtn"
+            type="submit"
+          >
+            Create
+          </button>
         </form>
-        <input id="color_picker" type="color" value="#333333" data-name="settingsColorPicker">
+        <input
+          id="color_picker"
+          type="color"
+          value="#333333"
+          data-name="settingsColorPicker"
+        />
         <label for="color_picker">Pick a color</label>
-        <button class="settings_btn mode_picker" data-name="color">Color</button>
-        <button class="settings_btn mode_picker" data-name="rainbow">Rainbow</button>
-        <button class="settings_btn mode_picker" data-name="greyScale">Gray Scale</button>
-        <button class="settings_btn mode_picker" data-name="eraser">Eraser</button>
-        <button class="settings_btn" data-name="settingsClearTheCanvas">Clear the canvas</button>
-        <button class="settings_btn" data-name="settingsShowGrid">Show grid</button>
+        <button class="settings_btn mode_picker active" data-name="color">
+          Color
+        </button>
+        <button class="settings_btn mode_picker" data-name="rainbow">
+          Rainbow
+        </button>
+        <button class="settings_btn mode_picker" data-name="greyScale">
+          Gray Scale
+        </button>
+        <button class="settings_btn mode_picker" data-name="eraser">
+          Eraser
+        </button>
+        <button class="settings_btn" data-name="settingsClearTheCanvas">
+          Clear the canvas
+        </button>
+        <button class="settings_btn" data-name="settingsShowGrid">
+          Show grid
+        </button>
       </section>
       <section class="canvas">
-        <h2 class="canvas_current_size"><span data-name="canvasCurrentSizeUI"></span>x<span data-name="canvasCurrentSizeUI"></span></h2>
+        <h2 class="canvas_current_size">
+          <span data-name="canvasCurrentSizeUI"></span>x<span
+            data-name="canvasCurrentSizeUI"
+          ></span>
+        </h2>
         <div class="canvas_container" data-name="canvasContainer"></div>
       </section>
     </main>
-    <footer>Copyright &#169 Anna Sobieraj-Kmiecik <a href="https://github.com/annask94" class="git_link">annask94</a></footer>
+    <footer>
+      Anna Sobieraj-Kmiecik
+      <a href="https://github.com/annask94" class="git_link">annask94</a>
+    </footer>
   </body>
   <script src="main.js"></script>
 </html>

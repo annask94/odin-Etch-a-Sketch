@@ -46,13 +46,35 @@ function chooseSize(event) {
   const divColor = document.querySelectorAll(".canvas_grid");
 
   divColor.forEach((div) => {
-    div.addEventListener("click", () => {
+    div.addEventListener("mouseover", () => {
       drawOnCanvas(div, modeChoice);
     });
   });
 
   canvasSizeDisplay.forEach((element) => {
     element.textContent = size;
+  });
+
+  //STYLE RESET
+
+  const clearGridBtn = document.querySelector(
+    '[data-name="settingsClearTheCanvas"]'
+  );
+
+  clearGridBtn.addEventListener("click", () => {
+    divColor.forEach((div) => {
+      div.style.background = "none";
+    });
+  });
+
+  //SHOW GRID
+  const showGridBtn = document.querySelector('[data-name="settingsShowGrid"]');
+
+  showGridBtn.addEventListener("click", () => {
+    showGridBtn.classList.toggle("active");
+    divColor.forEach((div) => {
+      div.classList.toggle("canvas_grid_show");
+    });
   });
 }
 
@@ -65,8 +87,9 @@ const modePickBtn = document.querySelectorAll(".mode_picker");
 
 //DEFAULT MODE
 let modeChoice = "color";
-
-//GET RANDOM RGB COLOR SELECT
+// STORING CLICKS FOR GRAY SCALE MODE
+const clickCountMap = new Map();
+const maxClicks = 10;
 
 // SELECT MODE
 modePickBtn.forEach((button) => {
@@ -83,17 +106,26 @@ function drawOnCanvas(div, modeChoice) {
   if (modeChoice === "color") {
     div.style.backgroundColor = pickedColor;
   } else if (modeChoice === "rainbow") {
-    const randomColor = () => {
-      const red = Math.floor(Math.random() * 256);
-      const green = Math.floor(Math.random() * 256);
-      const blue = Math.floor(Math.random() * 256);
-
-      const color = `rgb("${red}", ${green}, ${blue})`;
-      return color;
-    };
+    const randomColor = getRandomColor();
     div.style.backgroundColor = randomColor;
-  } else if (modeChoice === "grayScale") {
+  } else if (modeChoice === "greyScale") {
+    const clickCount = clickCountMap.get(div) || 0;
+    clickCountMap.set(div, clickCount + 1);
+    const currentClicks = clickCountMap.get(div);
+    const opacity = currentClicks / maxClicks;
+    div.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+  } else {
+    div.style.background = "none";
   }
 }
 
-function getRandomColor() {}
+//GET RANDOM RGB COLOR SELECT
+
+function getRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const color = `rgb(${red}, ${green}, ${blue})`;
+  return color;
+}
