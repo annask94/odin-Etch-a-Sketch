@@ -43,7 +43,7 @@ function chooseSize(event) {
     canvasContainer.appendChild(divPixel);
   }
 
-  const divColor = document.querySelectorAll(".canvas_grid");
+  let divColor = document.querySelectorAll(".canvas_grid");
 
   divColor.forEach((div) => {
     div.addEventListener("mouseover", () => {
@@ -69,6 +69,7 @@ function chooseSize(event) {
 
   //SHOW GRID
   const showGridBtn = document.querySelector('[data-name="settingsShowGrid"]');
+  showGridBtn.classList.remove("active");
 
   showGridBtn.addEventListener("click", () => {
     showGridBtn.classList.toggle("active");
