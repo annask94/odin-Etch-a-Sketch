@@ -54,30 +54,30 @@ function chooseSize(event) {
   canvasSizeDisplay.forEach((element) => {
     element.textContent = size;
   });
-
-  //STYLE RESET
-
-  const clearGridBtn = document.querySelector(
-    '[data-name="settingsClearTheCanvas"]'
-  );
-
-  clearGridBtn.addEventListener("click", () => {
-    divColor.forEach((div) => {
-      div.style.background = "none";
-    });
-  });
-
-  //SHOW GRID
-  const showGridBtn = document.querySelector('[data-name="settingsShowGrid"]');
-  showGridBtn.classList.remove("active");
-
-  showGridBtn.addEventListener("click", () => {
-    showGridBtn.classList.toggle("active");
-    divColor.forEach((div) => {
-      div.classList.toggle("canvas_grid_show");
-    });
-  });
 }
+
+//STYLE RESET
+
+const clearGridBtn = document.querySelector(
+  '[data-name="settingsClearTheCanvas"]'
+);
+
+clearGridBtn.addEventListener("click", () => {
+  const divColor = document.querySelectorAll(".canvas_grid");
+
+  divColor.forEach((div) => {
+    div.style.background = "";
+  });
+});
+
+//SHOW GRID
+const showGridBtn = document.querySelector('[data-name="settingsShowGrid"]');
+showGridBtn.classList.remove("active");
+
+showGridBtn.addEventListener("click", () => {
+  showGridBtn.classList.toggle("active");
+  canvasContainer.classList.toggle("canvas_grid_show");
+});
 
 //DRAWING MODES
 
