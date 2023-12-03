@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 sizeInputBtn.addEventListener("click", chooseSize);
 
 function chooseSize(event) {
-  event.preventDefault();
+  event?.preventDefault();
 
   let size = sizeInput.value;
 
@@ -110,7 +110,7 @@ function drawOnCanvas(div, modeChoice) {
     const randomColor = getRandomColor();
     div.style.backgroundColor = randomColor;
   } else if (modeChoice === "greyScale") {
-    const clickCount = clickCountMap.get(div) || 0;
+    const clickCount = (clickCountMap.get(div) || 0) + 1;
     clickCountMap.set(div, clickCount + 1);
     const currentClicks = clickCountMap.get(div);
     const opacity = currentClicks / maxClicks;
