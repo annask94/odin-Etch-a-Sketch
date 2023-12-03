@@ -28,32 +28,36 @@ sizeInputBtn.addEventListener("click", chooseSize);
 function chooseSize(event) {
   event?.preventDefault();
 
-  let size = sizeInput.value;
+  let size = parseInt(sizeInput.value);
 
-  while (canvasContainer.firstChild) {
-    canvasContainer.removeChild(canvasContainer.firstChild);
-  }
+  if (Number.isInteger(size) && size >= 2 && size <= 64) {
+    while (canvasContainer.firstChild) {
+      canvasContainer.removeChild(canvasContainer.firstChild);
+    }
 
-  canvasContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-  canvasContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    canvasContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    canvasContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-  for (let i = 0; i < size * size; i++) {
-    const divPixel = document.createElement("div");
-    divPixel.classList.add("canvas_grid");
-    canvasContainer.appendChild(divPixel);
-  }
+    for (let i = 0; i < size * size; i++) {
+      const divPixel = document.createElement("div");
+      divPixel.classList.add("canvas_grid");
+      canvasContainer.appendChild(divPixel);
+    }
 
-  let divColor = document.querySelectorAll(".canvas_grid");
+    let divColor = document.querySelectorAll(".canvas_grid");
 
-  divColor.forEach((div) => {
-    div.addEventListener("mouseover", () => {
-      drawOnCanvas(div, modeChoice);
+    divColor.forEach((div) => {
+      div.addEventListener("mouseover", () => {
+        drawOnCanvas(div, modeChoice);
+      });
     });
-  });
 
-  canvasSizeDisplay.forEach((element) => {
-    element.textContent = size;
-  });
+    canvasSizeDisplay.forEach((element) => {
+      element.textContent = size;
+    });
+  } else {
+    alert("Please enter an integer between 2 and 64.");
+  }
 }
 
 //STYLE RESET
